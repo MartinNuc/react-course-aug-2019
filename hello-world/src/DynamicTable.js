@@ -4,7 +4,6 @@ export function DynamicTable(props) {
 
   let rows = [];
   let columns = [];
-  debugger
   for(let i = 0 ; i < props.columns; i++) {
     columns.push('x');
   }

@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
 import { DynamicTable } from './DynamicTable';
+import { CounterWrapper } from './CounterWrapper';
 
 function App() {
   return (
     <div>
-      Ahoj
+      <CounterWrapper />
       <DynamicTable rows={5} columns={3}></DynamicTable>
     </div>
   );
