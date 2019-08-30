@@ -15,9 +15,17 @@ export class CounterWrapper extends React.Component {
     });
   }
 
+  handleTick = (count) => {
+    if (count > 500) {
+      this.setState({
+        visible: false
+      });
+    }
+  }
+
   render() {
     return <>
-      {this.state.visible && <CounterComponent />}
+      {this.state.visible && <CounterComponent tick={this.handleTick} />}
       <button onClick={this.toggleVsibility}>toggle</button>
     </>
   }
