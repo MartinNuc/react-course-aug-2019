@@ -14,11 +14,31 @@
 </body>
 <script>
 
-  const td = React.createElement('td', null, 'Hello');
-  const tr = React.createElement('tr', null, [td, td]);
-  const tbody = React.createElement('tbody', null, [tr, tr, tr]);
-  const table = React.createElement('table', {border: '1'}, tbody);
+  const table = React.createElement(DynamicTable, { rows: 3, columns: 4 });
   ReactDOM.render(table, document.querySelector('#app'));
 
+  /**
+  props: {
+    rows: 5,
+    columns: 3
+  }
+  */
+  function DynamicTable({rows, columns}) {
+    let rowsElements = [];
+    for(let i = 0; i < rows; i++) {
+      const rowElement = React.createElement('tr', null, prepareTds(columns));
+      rowsElements.push(rowElement);
+    }
+    return React.createElement('table', null, rowsElements);
+  }
+
+  function prepareTds(count) {
+    let tds = [];
+    for(let i = 0; i < count; i++) {
+      tds.push(React.createElement('td', null, 'Hello'));
+    }
+    return tds;
+  }
+  
 </script>
 </html>
